@@ -57,7 +57,7 @@ const double SCALE = (TABLE_SIZE - 1) / (MAX_X - MIN_X);
 //# hàm chuẩn bị dữ liệu
 void precalc() {
     for (int i = 0; i < TABLE_SIZE; ++i) {
-        double x = MIN_X + (MAX_X - MIN_X) * i / (TABLE_SIZE - 1);
+        double x = MIN_X + i / SCALE;
         sigmoid_lookup[i] = 1.0 / (1.0 + exp(-x));
     }
 }
