@@ -32,10 +32,10 @@ void rotate(int& a, int& b, int& c) {
 }
 
 int main() {
-    int a_dtn, b_dtn, c_dtn;
-    std::cin >> a_dtn >> b_dtn >> c_dtn;
-    std::cout << "Before rotation: " << a_dtn << " " << b_dtn << " " << c_dtn << std::endl;
-    rotate(a_dtn, b_dtn, c_dtn);
-    std::cout << "After rotation: " << a_dtn << " " << b_dtn << " " << c_dtn << std::endl;
+    int a_90, b_90, c_90;
+    std::cin >> a_90 >> b_90 >> c_90;
+    std::cout << "Before: " << a_90 << ", " << b_90 << ", " << c_90 << std::endl;
+    rotate(a_90, b_90, c_90);
+    std::cout << "After: " << a_90 << ", " << b_90 << ", " << c_90 << std::endl;
     return 0;
 }

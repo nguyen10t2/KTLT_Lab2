@@ -22,23 +22,21 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Dao Trong Nguyen _ 20235390 _ IT2-03 _ IT3040 _ 750829_ 2024.2
 
-#include <iostream>
-#include <iomanip>
+// Bai 1.4
 
-int cube(int n) {
-    return n * n * n;
-}
+#include <stdio.h>
 
-double cube(double n) {
-    return n * n * n;
+int countEven(int* arr, int length) {
+    int count = 0;
+    for(int i = 0; i < length; ++i) count += arr[i] % 2 == 0;
+    return count;
 }
 
 int main() {
-    int n_90;
-    double f_90;
-    std::cin >> n_90 >> f_90;
-    std::cout << "Int: " << cube(n_90) << std::endl;
-    std::cout << std::fixed << std::setprecision(2) << "Double: " << cube(f_90) << std::endl;
+    int arr_dtn[] = {1, 5, 4, 8, 10, 6, 7, 2};
+    printf("%d", countEven(arr_dtn, sizeof(arr_dtn) / sizeof(arr_dtn[0])));
+
+    // Dao Trong Nguyen _ 20235390
 
     return 0;
 }

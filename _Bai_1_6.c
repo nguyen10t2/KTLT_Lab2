@@ -22,23 +22,40 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Dao Trong Nguyen _ 20235390 _ IT2-03 _ IT3040 _ 750829_ 2024.2
 
-#include <iostream>
-#include <iomanip>
+// Bai 1.6
 
-int cube(int n) {
-    return n * n * n;
+#include <stdio.h>
+
+void reversearray(int* arr, int size) {
+    int l = 0, r = size - 1;
+    while(l < r) {
+        int temp = arr[l];
+        arr[l] = arr[r];
+        arr[r] = temp;
+        l++; r--;
+    }
 }
 
-double cube(double n) {
-    return n * n * n;
+void ptr_reversearray(int* arr, int size) {
+    int *l = arr, *r = arr + size - 1;
+    while(l < r) {
+        int temp = *l;
+        *l = *r;
+        *r = temp;
+        l++; r--;
+    }
+}
+
+void printArray(int* arr, int size) {
+    for(int i = 0; i < size; ++i) printf("%d ", arr[i]);
+    printf("\n");
 }
 
 int main() {
-    int n_90;
-    double f_90;
-    std::cin >> n_90 >> f_90;
-    std::cout << "Int: " << cube(n_90) << std::endl;
-    std::cout << std::fixed << std::setprecision(2) << "Double: " << cube(f_90) << std::endl;
+    int arr_dtn[] = {9, 3 ,5 ,6 ,2 ,5};
+    reversearray(arr_dtn, sizeof(arr_dtn) / sizeof(arr_dtn[0]));
+    printArray(arr_dtn, sizeof(arr_dtn) / sizeof(arr_dtn[0]));
+    // Dao Trong Nguyen _ 20235390
 
     return 0;
 }

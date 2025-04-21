@@ -22,23 +22,27 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Dao Trong Nguyen _ 20235390 _ IT2-03 _ IT3040 _ 750829_ 2024.2
 
-#include <iostream>
-#include <iomanip>
+// Bai 1.3
 
-int cube(int n) {
-    return n * n * n;
-}
-
-double cube(double n) {
-    return n * n * n;
-}
+#include <stdio.h>
 
 int main() {
-    int n_90;
-    double f_90;
-    std::cin >> n_90 >> f_90;
-    std::cout << "Int: " << cube(n_90) << std::endl;
-    std::cout << std::fixed << std::setprecision(2) << "Double: " << cube(f_90) << std::endl;
+    int x_dtn, y_dtn, z_dtn;
+    int *ptr;
+    printf("Here are the values of x, y, and z: \n");
+    scanf("%d%d%d", &x_dtn, &y_dtn, &z_dtn);
+    printf("%d %d %d\n", x_dtn, y_dtn, z_dtn);
+    printf("Once again, here are the values of x, y, and z:\n");
+    ptr = &x_dtn;
+    *ptr += 100;
+    ptr = &y_dtn;
+    *ptr += 100;
+    ptr = &z_dtn;
+    *ptr += 100;
+    printf("%d %d %d", x_dtn, y_dtn, z_dtn);
+
+    // Dao Trong Nguyen 20235390
 
     return 0;
+
 }

@@ -29,16 +29,16 @@ __int64 get_value(int x, int a = 2, int b = 1, int c = 0) {
 }
 
 int main() {
-    int x_dtn;
-    std::cin >> x_dtn;
+    int x_90;
+    std::cin >> x_90;
 
-    int a_dtn = 2, b_dtn = 1, c_dtn = 0;
-    std::cin >> a_dtn >> b_dtn >> c_dtn;
+    int a_90 = 2, b_90 = 1, c_90 = 0;
+    std::cin >> a_90 >> b_90 >> c_90;
 
-    std::cout << "a = 2, b = 1, c = 0: " << get_value(x_dtn) << std::endl;
-    std::cout << "a = " << a_dtn << ", b = 1, c = 0: " << get_value(x_dtn, a_dtn) << std::endl;
-    std::cout << "a = " << a_dtn << ", b = " << b_dtn << ", c = 0: " << get_value(x_dtn, a_dtn, b_dtn) << std::endl;
-    std::cout << "a = " << a_dtn << ", b = " << b_dtn << ", c = " << c_dtn << ": " << get_value(x_dtn, a_dtn, b_dtn, c_dtn) << std::endl;
+    std::cout << "a = 2, b = 1, c = 0: " << get_value(x_90) << std::endl;
+    std::cout << "a = " << a_90 << ", b = 1, c = 0: " << get_value(x_90, a_90) << std::endl;
+    std::cout << "a = " << a_90 << ", b = " << b_90 << ", c = 0: " << get_value(x_90, a_90, b_90) << std::endl;
+    std::cout << "a = " << a_90 << ", b = " << b_90 << ", c = " << c_90 << ": " << get_value(x_90, a_90, b_90, c_90) << std::endl;
 
     return 0;
 }

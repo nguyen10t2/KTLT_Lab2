@@ -37,19 +37,19 @@ template <typename T> T arr_sum(T* a, int n, T* b, int m) {
 
 
 int main() {
-    int val_dtn;
-    std::cin >> val_dtn;
+    int val_90;
+    std::cin >> val_90;
 
     {
-        int a_dtn[] = {3, 2, 0, val_dtn};
-        int b_dtn[] = {5, 6, 1, 2, 7};
-        std::cout << arr_sum(a_dtn, 4, b_dtn, 5) << std::endl;
+        int a_90[] = {3, 2, 0, val_90};
+        int b_90[] = {5, 6, 1, 2, 7};
+        std::cout << arr_sum(a_90, 4, b_90, 5) << std::endl;
     }
 
     {
-        double a_dtn[] = {3.0, 2, 0, val_dtn * 1.0};
-        double b_dtn[] = {5, 6.1, 1, 2.3, 7};
-        std::cout << arr_sum(a_dtn, 4, b_dtn, 5) << std::endl;
+        double a_90[] = {3.0, 2, 0, val_90 * 1.0};
+        double b_90[] = {5, 6.1, 1, 2.3, 7};
+        std::cout << arr_sum(a_90, 4, b_90, 5) << std::endl;
     }
 
     return 0;

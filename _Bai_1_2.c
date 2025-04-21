@@ -22,23 +22,17 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Dao Trong Nguyen _ 20235390 _ IT2-03 _ IT3040 _ 750829_ 2024.2
 
-#include <iostream>
-#include <iomanip>
+// Bai 1.4
 
-int cube(int n) {
-    return n * n * n;
-}
-
-double cube(double n) {
-    return n * n * n;
-}
+#include <stdio.h>
 
 int main() {
-    int n_90;
-    double f_90;
-    std::cin >> n_90 >> f_90;
-    std::cout << "Int: " << cube(n_90) << std::endl;
-    std::cout << std::fixed << std::setprecision(2) << "Double: " << cube(f_90) << std::endl;
 
-    return 0;
+    int arr_dtn[] = {13, -355, 235, 47, 67, 943, 1222};
+
+    for(int i = 0; i < 5; ++i) 
+        printf("Address of arr_dtn[%d] is %p\n", i, &arr_dtn[i]);
+    
+    // Dao Trong Nguyen _ 20235390
+
 }

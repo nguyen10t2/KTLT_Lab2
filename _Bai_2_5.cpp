@@ -66,17 +66,17 @@ std::ostream& operator<<(std::ostream& os, const Complex& c) {
 }
 
 int main() {
-    double real_a_dtn, real_b_dtn, img_a_dtn, img_b_dtn;
-    std::cin >> real_a_dtn >> img_a_dtn;
-    std::cin >> real_b_dtn >> img_b_dtn;
+    double real_a_90, real_b_90, img_a_90, img_b_90;
+    std::cin >> real_a_90 >> img_a_90;
+    std::cin >> real_b_90 >> img_b_90;
     
-    Complex a_dtn{real_a_dtn, img_a_dtn};
-    Complex b_dtn{real_b_dtn, img_b_dtn};
+    Complex a_90{real_a_90, img_a_90};
+    Complex b_90{real_b_90, img_b_90};
     
-    std::cout << a_dtn << " + " << b_dtn << " = " << a_dtn + b_dtn << std::endl;
-    std::cout << a_dtn << " - " << b_dtn << " = " << a_dtn - b_dtn << std::endl;
-    std::cout << a_dtn << " * " << b_dtn << " = " << a_dtn * b_dtn << std::endl;
-    std::cout << a_dtn << " / " << b_dtn << " = " << a_dtn / b_dtn << std::endl;
+    std::cout << a_90 << " + " << b_90 << " = " << a_90 + b_90 << std::endl;
+    std::cout << a_90 << " - " << b_90 << " = " << a_90 - b_90 << std::endl;
+    std::cout << a_90 << " * " << b_90 << " = " << a_90 * b_90 << std::endl;
+    std::cout << a_90 << " / " << b_90 << " = " << a_90 / b_90 << std::endl;
     
     return 0;
 }

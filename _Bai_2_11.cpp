@@ -158,12 +158,12 @@ int main() {
 
     Polynomial r = p * q;
 
-    int res_dtn = r[0];
+    int res_90 = r[0];
     for(int i = 1; i <= r.getDegree(); ++i) {
-        res_dtn ^= r[i];
+        res_90 ^= r[i];
     }
 
-    std::cout << res_dtn << std::endl;
+    std::cout << res_90 << std::endl;
 
     return 0;
 }

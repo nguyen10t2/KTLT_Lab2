@@ -21,7 +21,7 @@
 //
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Dao Trong Nguyen _ 20235390 _ IT2-03 _ IT3040 _ 750829_ 2024.2
-
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cmath>
@@ -49,27 +49,28 @@ void prepare_input() {
     }
 }
 
-const int TABLE_SIZE = 1024;
-const double MIN_X = -8.0, MAX_X = 8.0;
-double sigmoid_lookup[TABLE_SIZE];
-const double SCALE = (TABLE_SIZE - 1) / (MAX_X - MIN_X);
+const int TABLE_SIZE = 1 << 11;
+double sigmoid_lookup[TABLE_SIZE + 1];
 
 //# hàm chuẩn bị dữ liệu
 void precalc() {
+    const double MIN_X = -6.0, MAX_X = 6.0;
+    const double SCALE = TABLE_SIZE / (MAX_X - MIN_X);
+    const double INV_SCALE = 1 / SCALE;
     for (int i = 0; i < TABLE_SIZE; ++i) {
-        double x = MIN_X + i / SCALE;
-        sigmoid_lookup[i] = 1.0 / (1.0 + exp(-x));
+        sigmoid_lookup[i] = 1.0 / (1.0 + exp(-(MIN_X + i * INV_SCALE)));
     }
 }
 
 //# hàm tính sigmoid(x) nhanh sigmoid_fast(x)
 inline double sigmoid_fast(double x) {
+    const double MIN_X = -6.0, MAX_X = 6.0;
+    const double SCALE = TABLE_SIZE / (MAX_X - MIN_X);
+    const double INV_SCALE = 1 / SCALE;
     if (x <= MIN_X) return 0.0;
     if (x >= MAX_X) return 1.0;
-    double pos = (x - MIN_X) * SCALE;
-    int index = (int)pos;
-    double frac = pos - index;
-    return sigmoid_lookup[index] * (1.0 - frac) + sigmoid_lookup[index + 1] * frac;
+    int index = (x - MIN_X) * SCALE;
+    return (x - (MIN_X + INV_SCALE * index)) * SCALE * (sigmoid_lookup[index + 1] - sigmoid_lookup[index]) + sigmoid_lookup[index];
 }
 
 //# END fast code
@@ -102,12 +103,19 @@ bool is_correct(const vector<double> &a, const vector<double> &b) {
     const double EPS = 1e-6;
 
     if (a.size() != b.size()) return false;
-    for (int i = 0; i < a.size(); ++i) {
+    for (int i = 0; i < (int)a.size(); ++i) {
         if (fabs(a[i] - b[i]) > EPS) {
             return false;
         }
     }
     return true;
+}
+
+void print_arr(vector<double> a) {
+    for(double x : a) {
+        std::cout << x << ' ';
+    }
+    std::cout << std::endl;
 }
 
 int main() {
@@ -121,10 +129,10 @@ int main() {
     double xval;
     scanf("%lf", &xval);
     printf("%.2f \n", sigmoid_fast(xval));
-    printf("%.2f \n", slow / fast);
-    
-    if (is_correct(a, b) && (slow/fast > 1.3)) {
-        printf("Correct answer! Your code is faster\n");
+    bool flag = is_correct(a, b);
+    //printf("%d %.2lf\n", flag, slow / fast);
+    if (flag && (slow/fast > 1.3)) {
+        printf("Correct answer! Your code is faster at least 30%%!\n");
     } else {
         printf("Wrong answer or your code is not fast enough!\n");
     }

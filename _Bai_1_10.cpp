@@ -22,7 +22,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Dao Trong Nguyen _ 20235390 _ IT2-03 _ IT3040 _ 750829_ 2024.2
 
-// Bai 1.10
+// Bai 1.4
 
 #include <iostream>
 
@@ -58,7 +58,7 @@ public:
     friend std::istream& operator>>(std::istream& in, Matrix& p) {
         for (int i = 0; i < p.getRow(); ++i) {
             for (int j = 0; j < p.getCol(); ++j) {
-                in >> p[i][j];
+                in >> p.mtr[i][j];
             }
         }
         return in;
@@ -68,7 +68,7 @@ public:
     friend std::ostream& operator<<(std::ostream& out, const Matrix& p) {
         for (int i = 0; i < p.getRow(); ++i) {
             for (int j = 0; j < p.getCol(); ++j) {
-                out << p[i][j] << ' ';
+                out << p.mtr[i][j] << ' ';
             }
             out << '\n';
         }
@@ -84,7 +84,7 @@ public:
         Matrix<T> newMtr(this->getRow(), this->getCol()); // Tạo ma trận mới với kích thước giống
         for (int i = 0; i < this->getRow(); ++i) {
             for (int j = 0; j < this->getCol(); ++j) {
-                newMtr[i][j] = (*this)[i][j] + other[i][j]; // Cộng từng phần tử
+                newMtr[i][j] = this->mtr[i][j] + other.mtr[i][j]; // Cộng từng phần tử
             }
         }
         return newMtr;
@@ -104,7 +104,7 @@ public:
             for (int j = 0; j < other.getCol(); ++j) {
                 result[i][j] = 0; // Khởi tạo phần tử tại result[i][j]
                 for (int k = 0; k < this->getCol(); ++k) {
-                    result[i][j] += (*this)[i][k] * other[k][j]; // Cộng phần tử (i, j)
+                    result[i][j] += this->mtr[i][k] * other.mtr[k][j]; // Cộng phần tử (i, j)
                 }
             }
         }
@@ -113,11 +113,6 @@ public:
 
     // Toán tử [] để truy cập phần tử trong ma trận
     T* operator[](int rowIndex) {
-        return mtr[rowIndex];
-    }
-
-    // Toán tử [] const để truy cập phần tử trong ma trận (hằng số)
-    const T* operator[](int rowIndex) const {
         return mtr[rowIndex];
     }
 
@@ -132,22 +127,18 @@ public:
 };
 
 int main() {
-
-    // Dao Trong Nguyen _ 20235390 _ IT2-03 _ IT3040 _ 750829_ 2024.2
-
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    int n;
-    scanf("%d", &n);
-    Matrix<int> p(n, n);
-    // std::cout << "Nhap ma tran 3x3:\n";
+    Matrix<int> p(3, 3);
+    std::cout << "Nhap ma tran 3x3:\n";
     std::cin >> p;  // Nhập ma trận
-    // std::cout << "Ma tran vua nhap:\n";
-    // std::cout << p;  // In ma trận
+
+    std::cout << "Ma tran vua nhap:\n";
+    std::cout << p;  // In ma trận
+
     // Tạo một ma trận khác
-    Matrix<int> q(n, n);
-    // std::cout << "Nhap ma tran 3x3 khac:\n";
+    Matrix<int> q(3, 3);
+    std::cout << "Nhap ma tran 3x3 khac:\n";
     std::cin >> q;
+
     // Cộng hai ma trận
     try {
         Matrix<int> result = p + q;
@@ -156,6 +147,7 @@ int main() {
     } catch (const std::invalid_argument& e) {
         std::cout << "Loi: " << e.what() << std::endl;
     }
+
     try {
         Matrix<int> result = p * q;
         std::cout << "Ket qua cua ma tran p * q:\n";
@@ -163,5 +155,6 @@ int main() {
     } catch (const std::invalid_argument& e) {
         std::cout << "Loi: " << e.what() << std::endl;
     }
+
     return 0;
 }

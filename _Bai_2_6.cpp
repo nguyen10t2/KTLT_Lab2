@@ -25,7 +25,7 @@
 #include <iostream>
 
 void print(int n) {
-    std::cout << n << std::endl;
+    std::cout << "n=" << n << std::endl;
 }
 
 int mul_3_plus_1(int n) {
@@ -48,12 +48,12 @@ void simulate(int n, int (*odd)(int), int (*even)(int), void (*output)(int)) {
 }
 
 int main() {
-    int (*odd_dtn)(int) = &mul_3_plus_1;
-    int (*even_dtn)(int) = &div_2;
-    void (*output_dtn)(int) = &print;
+    int (*odd_90)(int) = &mul_3_plus_1;
+    int (*even_90)(int) = &div_2;
+    void (*output_90)(int) = &print;
 
-    int n_dtn;
-    std::cin >> n_dtn;
-    simulate(n_dtn, odd_dtn, even_dtn, output_dtn);
+    int n_90;
+    std::cin >> n_90;
+    simulate(n_90, odd_90, even_90, output_90);
     return 0;
 }

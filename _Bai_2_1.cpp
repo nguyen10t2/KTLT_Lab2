@@ -31,9 +31,9 @@ float get_hypotenuse(float x, float y) {
 }
 
 int main() {
-    float x_dtn, y_dtn;
-    std::cin >> x_dtn >> y_dtn;
-    float z_dtn = get_hypotenuse(x_dtn, y_dtn);
-    std::cout << std::fixed << std::setprecision(2) << z_dtn << std::endl;
+    float x_90, y_90;
+    std::cin >> x_90 >> y_90;
+    float z_90 = get_hypotenuse(x_90, y_90);
+    std::cout << std::fixed << std::setprecision(2) << "z = " << z_90 << std::endl;
     return 0;
 }
